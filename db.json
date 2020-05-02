@@ -1,0 +1,80 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "title": "Beach cleanup",
+      "date": "Tuesday, August 1st 2020",
+      "time": "8:00",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "attendees": [
+        {
+          "id": "abc123",
+          "name": "Ilyes Chouia"
+        },
+        {
+          "id": "def456",
+          "name": "Yacine Ben Mohamed"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Collective lunch",
+      "date": "Monday, August 5th 2020",
+      "time": "11:00",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "attendees": [
+        {
+          "id": "abc123",
+          "name": "Ilyes Chouia"
+        },
+        {
+          "id": "def456",
+          "name": "Yacine Ben Mohamed"
+        },
+        {
+          "id": "ghi789",
+          "name": "Israa Farah"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Watching football match",
+      "date": "Thursday, August 9th 2020",
+      "time": "20:00",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "attendees": [
+        {
+          "id": "abc123",
+          "name": "Ilyes Chouia"
+        },
+        {
+          "id": "def456",
+          "name": "Yacine Ben Mohamed"
+        },
+        {
+          "id": "ghi789",
+          "name": "Youcef Alseddik"
+        },
+        {
+          "id": "ghi789",
+          "name": "Ali Zine elabidine"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Going to WWE Night",
+      "date": "Thursday, August 9th 2020",
+      "time": "20:00",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+      "attendees": [
+        {
+          "id": "abc123",
+          "name": "Ilyes Chouia"
+        }
+      ]
+    }
+  ]
+}
