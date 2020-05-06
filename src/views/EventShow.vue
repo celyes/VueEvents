@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h1>{{event.title}}</h1>
+    <h1 class="my-5">{{event.title}}</h1>
     <div class="card">
       <span>
         <small>{{event.date}} on {{event.time}}</small>

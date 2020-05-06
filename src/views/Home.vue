@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <h1>Welcome Home</h1>
+    <h1 class="my-5">Welcome Home</h1>
   </div>
 </template>
 <script>
