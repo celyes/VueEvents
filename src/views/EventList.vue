@@ -14,7 +14,7 @@ export default {
     EventCard
   },
   created() {
-    this.$store.dispatch('fetchEvent');
+    this.$store.dispatch('fetchEvents');
   },
   computed: mapState(['events'])
 }

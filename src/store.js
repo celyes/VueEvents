@@ -15,7 +15,8 @@ export default new Vuex.Store({
       'society',
       'entertainment'
     ],
-    events: []
+    events: [],
+    event: {}
   },
   mutations: {
     ADD_EVENT: function(state, event) {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     },
     SET_EVENTS: function(state, events) {
       state.events = events
+    },
+    SET_EVENT: function(state, event){
+      state.event = event
     }
   },
   actions: {
@@ -31,13 +35,27 @@ export default new Vuex.Store({
         commit('ADD_EVENT', event)
       })
     },
-    fetchEvent: function({ commit }) {
+    fetchEvents: function({ commit }) {
       EventService.getEvents()
       .then(response => {
         commit('SET_EVENTS', response.data)
       })
       .catch(error => {console.error('There was an error: ' + error.message)})
+    },
+    fetchEvent: function({ commit, getters }, id) {
+      let event = getters.getEventById(id)
+
+      if(event) {
+        commit('SET_EVENT', event)
+      }else{
+        EventService.getEvent(id)
+        .then(response => { commit('SET_EVENT', response.data) })
+        .catch(error => {console.error(error)});
+      }
     }
+  },
+  getters: {
+    getEventById: state => id => state.events.find(event => event.id === id)
   }
 })
 
