@@ -5,7 +5,7 @@
       <span>
         <small>{{event.date}} on {{event.time}}</small>
         <br><br>
-        <small>{{event.attendees.length}} are going</small>
+        <small>{{event.attendees}} are going</small>
       </span>
       <p class="description"><strong>Description:</strong><br>{{event.description}}</p>
     </div>

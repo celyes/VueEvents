@@ -5,25 +5,18 @@
   </div>
 </template>
 <script>
+
+import { mapState } from 'vuex'
 import EventCard from '@/components/EventCard.vue';
-import EventSerice from '@/services/EventService.js';
 
 export default {
   components :{
     EventCard
   },
-  data() {
-    return {
-      events: []
-    }
-  },
   created() {
-    EventSerice.getEvents()
-    .then(response => {
-      this.events = response.data
-    })
-    .catch(error => {console.error('There was an error: ' + error.message)})
-  }
+    this.$store.dispatch('fetchEvent');
+  },
+  computed: mapState(['events'])
 }
 
 </script>

@@ -3,30 +3,48 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h1 class="text-center my-5">Create an event</h1>
-        <form>
+        <form @submit.prevent="createEvent">
           <div class="form-group">
             <label for="categorySelect"><small>Choose a category</small></label>
-            <select class="form-control" id="categorySelect">
-              <option selected disabled>Categories</option>
+            <select class="form-control" id="categorySelect" v-model="event.category">
+              <option selected disabled>{{event.category}}</option>
               <option v-for="cat in categories" :key="cat">{{cat}}</option>
             </select>
           </div>
 
           <div class="form-group">
             <label for="title"><small>Title</small></label>
-            <input type="text" class="form-control" v-model="event.title" placeholder="Title...">
+            <input type="text" class="form-control" v-model="event.title" :placeholder="event.title">
           </div>
 
           <div class="form-group">
-            <label for="title"><small>When is this going to happen?</small></label>
-            <Datepicker input-class="form-control" placeholder="Choose a date" />
+            <label for="date"><small>When is this going to happen?</small></label>
+            <Datepicker input-class="form-control" placeholder="Choose a date" v-model="event.date" />
+          </div>
+
+          <div class="form-group">
+            <label for="time"><small>At what time?</small></label>
+            <select class="form-control" id="time"  v-model="event.time">
+              <option selected disabled>{{event.time}}</option>
+              <option v-for="time in times" :key="time">{{time}}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="description"><small>Description</small></label>
+            <textarea class="form-control" v-model="event.description" :placeholder="event.description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="attendees"><small>Number of expected attendees: {{ event.attendees ? event.attendees : '5' }}</small></label>
+            <input type="range" class="custom-range" v-model.number="event.attendees" value="event.attendees" min="5" max="10000" step="5">
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Add event</button>
           </div>
         </form>
       </div>
     </div>
-    <!--<input type="number" v-model.number="incrementBy">
-    <button @click="incrementID">increment by number</button>
-    {{count}}-->
   </div>
 </template>
 
@@ -35,19 +53,46 @@
 import { mapState } from 'vuex'
 import Datepicker from 'vuejs-datepicker'
 
+
 export default {
   data () {
+    const times = [];
+    for(let i = 1; i < 24; i++){
+      times.push(i+":00");
+    }
     return {
-      incrementBy:0,
-      event: {}
+      times,
+      event: this.createEventObject()
     }
   },
   computed: {
-    ...mapState(['count', 'user', 'categories']),
+    ...mapState(['user', 'categories']),
   },
   methods: {
-    incrementID: function() {
-      this.$store.dispatch('updateCount', this.incrementBy);
+    createEvent: function(){
+      this.$store.dispatch('createEvent', this.event)
+      .then(() => {
+        this.$router.push({
+          name: 'event-show',
+          params: { id: this.event.id }
+        })
+        this.event = this.createEventObject();
+      }).catch(() => {
+        console.error('There was a problem!')
+      })
+    },
+    createEventObject: function() {
+      return {
+        user: this.$store.state.user,
+        id: Math.floor(Math.random() * 10000000),
+        title: 'Type in the title',
+        category: 'Select a category',
+        description: 'Describe the event',
+        attendees: 5,
+        date: '',
+        time: 'When?'
+
+      }
     }
   },
   components: {

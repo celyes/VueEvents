@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import EventService from '@/services/EventService'
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    count: 0,
     user: { id: "0x01", name: "Ilyes Chouia" },
     categories: [
       'food',
@@ -14,18 +14,29 @@ export default new Vuex.Store({
       'culture',
       'society',
       'entertainment'
-    ]
+    ],
+    events: []
   },
   mutations: {
-    INCREMENT_COUNT: function(state, value) {
-      state.count += value;
+    ADD_EVENT: function(state, event) {
+      state.events.push(event)
+    },
+    SET_EVENTS: function(state, events) {
+      state.events = events
     }
   },
   actions: {
-    updateCount: function({state, commit}, value) {
-      if(state.user) {
-        commit('INCREMENT_COUNT', value)
-      }
+    createEvent: function({ commit }, event) {
+      return EventService.postEvent(event).then(() => {
+        commit('ADD_EVENT', event)
+      })
+    },
+    fetchEvent: function({ commit }) {
+      EventService.getEvents()
+      .then(response => {
+        commit('SET_EVENTS', response.data)
+      })
+      .catch(error => {console.error('There was an error: ' + error.message)})
     }
   }
 })

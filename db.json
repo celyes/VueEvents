@@ -1,15 +1,43 @@
 {
   "events": [
     {
-      "user":{ "id": "0x01", "name": "Ilyes Chouia" },
+      "user": {
+        "id": "0x01",
+        "name": "Ilyes Chouia"
+      },
       "id": 1,
       "title": "Beach cleanup",
       "category": "society",
-      "date": "Tuesday, August 1st 2020",
-      "time": "8:00",
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-      "attendees": 4
-    
+      "attendees": 4,
+      "date": "Tuesday, August 1st 2020",
+      "time": "8:00"
+    },
+    {
+      "user": {
+        "id": "0x01",
+        "name": "Ilyes Chouia"
+      },
+      "id": 1002327,
+      "title": "Algeria 2.0: the biggest IT event in Africa!",
+      "category": "technology",
+      "description": "Algeria 2.0: the biggest IT event in Africa!",
+      "attendees": 10000,
+      "date": "2020-05-08T15:47:00.000Z",
+      "time": "8:00"
+    },
+    {
+      "user": {
+        "id": "0x01",
+        "name": "Ilyes Chouia"
+      },
+      "id": 1734739,
+      "title": "Let's eat! 2",
+      "category": "food",
+      "description": "Let's eat something different and delicious!",
+      "attendees": 960,
+      "date": "2020-05-08T16:08:00.000Z",
+      "time": "13:00"
     }
   ]
 }

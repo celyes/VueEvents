@@ -4,7 +4,7 @@
       <div>
         <span><small>@ {{event.time}} on {{event.date}}</small></span>
         <h2>{{ event.title }}</h2>
-        <span><small>{{event.attendees.length ? event.attendees.length : '0'}} attending</small></span>
+        <span><small>{{event.attendees}} attending</small></span>
       </div>
     </router-link>
   </div>
