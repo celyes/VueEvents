@@ -10,8 +10,8 @@ var instance = axios.create({
 })
 
 export default {
-  getEvents() {
-    return instance.get('/events')
+  getEvents(perPage, page) {
+    return instance.get('/events?_page='+page+'&_limit='+perPage)
   },
   getEvent(id) {
     return instance.get('/events/'+id)

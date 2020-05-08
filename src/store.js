@@ -16,6 +16,7 @@ export default new Vuex.Store({
       'entertainment'
     ],
     events: [],
+    eventsTotal: 0, 
     event: {}
   },
   mutations: {
@@ -28,6 +29,10 @@ export default new Vuex.Store({
     SET_EVENT: function(state, event){
       state.event = event
     }
+    ,
+    SET_TOTAL_EVENTS: function(state, total){
+      state.eventsTotal = total
+    }
   },
   actions: {
     createEvent: function({ commit }, event) {
@@ -35,10 +40,11 @@ export default new Vuex.Store({
         commit('ADD_EVENT', event)
       })
     },
-    fetchEvents: function({ commit }) {
-      EventService.getEvents()
+    fetchEvents: function({ commit }, {perPage, page}) {
+      EventService.getEvents(perPage, page)
       .then(response => {
         commit('SET_EVENTS', response.data)
+        commit('SET_TOTAL_EVENTS', response.headers['x-total-count'])
       })
       .catch(error => {console.error('There was an error: ' + error.message)})
     },
