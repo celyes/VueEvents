@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h1 class="text-center my-5">Create an event</h1>
-        <form @submit.prevent="createEvent">
+        <form @submit.prevent="createNewEvent">
           <div class="form-group">
             <label for="categorySelect"><small>Choose a category</small></label>
             <select class="form-control" id="categorySelect" v-model="event.category">
@@ -50,7 +50,7 @@
 
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import Datepicker from 'vuejs-datepicker'
 
 
@@ -62,26 +62,23 @@ export default {
     }
     return {
       times,
-      event: this.createEventObject()
+      event: this.createFreshEventObject()
     }
   },
   computed: {
     ...mapState(['user', 'categories']),
   },
   methods: {
-    createEvent: function(){
-      this.$store.dispatch('createEvent', this.event)
+    ...mapActions('event', ['createEvent']),
+    createNewEvent: function(){
+      this.createEvent(this.event)
       .then(() => {
-        this.$router.push({
-          name: 'event-show',
-          params: { id: this.event.id }
-        })
-        this.event = this.createEventObject();
-      }).catch(() => {
-        console.error('There was a problem!')
+        this.$router.push({ name: 'event-show', params: { id: this.event.id } })
+        this.event = this.createFreshEventObject();
       })
+      .catch(() => { console.error('There was a problem!') })
     },
-    createEventObject: function() {
+    createFreshEventObject: function() {
       return {
         user: this.$store.state.user.user,
         id: Math.floor(Math.random() * 10000000),

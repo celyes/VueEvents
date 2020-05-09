@@ -20,19 +20,19 @@ export default {
     EventCard
   },
   created() {
-    this.fetchEvents({ perPage: 2, page: this.page })
+    this.fetchEvents({ perPage: 10, page: this.page })
   },
   computed: {
     page() {
       return parseInt(this.$route.query.page) || 1
     },
     total() {
-      return (this.event.eventsTotal >= this.page * 2)
+      return (this.event.eventsTotal >= this.page * 10)
     },
     ...mapState(['user', 'event'])
   },
   methods: {
-  ...mapActions('event', ['fetchEvents'])
+    ...mapActions('event', ['fetchEvents'])
   }
 }
 

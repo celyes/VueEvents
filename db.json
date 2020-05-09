@@ -31,91 +31,13 @@
         "id": "0x01",
         "name": "Ilyes Chouia"
       },
-      "id": 1734739,
-      "title": "Let's eat! 2",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
-    },
-    {
-      "user": {
-        "id": "0x01",
-        "name": "Ilyes Chouia"
-      },
-      "id": 1234856,
-      "title": "Let's eat! 3",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
-    },
-    {
-      "user": {
-        "id": "0x01",
-        "name": "Ilyes Chouia"
-      },
-      "id": 1234876,
-      "title": "Let's eat! 4",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
-    },
-    {
-      "user": {
-        "id": "0x01",
-        "name": "Ilyes Chouia"
-      },
-      "id": 1234876,
-      "title": "Let's eat! 4",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
-    },
-    {
-      "user": {
-        "id": "0x01",
-        "name": "Ilyes Chouia"
-      },
-      "id": 1234876,
-      "title": "Let's eat! 4",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
-    },
-    {
-      "user": {
-        "id": "0x01",
-        "name": "Ilyes Chouia"
-      },
-      "id": 1234876,
-      "title": "Let's eat! 4",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
-    },
-    {
-      "user": {
-        "id": "0x01",
-        "name": "Ilyes Chouia"
-      },
-      "id": 1234876,
-      "title": "Let's eat! 4",
-      "category": "food",
-      "description": "Let's eat something different and delicious!",
-      "attendees": 960,
-      "date": "2020-05-08T16:08:00.000Z",
-      "time": "13:00"
+      "id": 1931847,
+      "title": "Injaz Tech Bootcamp",
+      "category": "technology",
+      "description": "Nothing but useless bullshit",
+      "attendees": 1265,
+      "date": "2020-05-16T14:31:00.000Z",
+      "time": "9:00"
     }
   ]
 }
