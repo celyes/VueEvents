@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
-    <h1 class="my-5">Events in your area</h1>
-    <EventCard v-for="event in events" :key="event.id" :event="event"/>
+    <h1 class="my-5">Events for {{user.user.name}}</h1>
+    <EventCard v-for="event in event.events" :key="event.id" :event="event"/>
     <template v-if="page!=1">
       <router-link :to="{ name: 'event-list', query: {page: page - 1} }" rel="prev">Previous</router-link>
     </template>
@@ -12,7 +12,7 @@
 </template>
 <script>
 
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 import EventCard from '@/components/EventCard.vue';
 
 export default {
@@ -20,19 +20,19 @@ export default {
     EventCard
   },
   created() {
-    this.$store.dispatch('fetchEvents', {
-      perPage: 2,
-      page: this.page
-    })
+    this.fetchEvents({ perPage: 2, page: this.page })
   },
   computed: {
     page() {
       return parseInt(this.$route.query.page) || 1
     },
     total() {
-      return (this.eventsTotal >= this.page * 2)
+      return (this.event.eventsTotal >= this.page * 2)
     },
-    ...mapState(['events', 'eventsTotal'])
+    ...mapState(['user', 'event'])
+  },
+  methods: {
+  ...mapActions('event', ['fetchEvents'])
   }
 }
 

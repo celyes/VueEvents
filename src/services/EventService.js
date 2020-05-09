@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 var instance = axios.create({
-  baseURL : 'https://my-json-server.typicode.com/celyes/VueEvents', 
+  baseURL : 'http://localhost:3000', //https://my-json-server.typicode.com/celyes/VueEvents
   withCredentials: false,
   headers: {
     Accept: 'application/json',

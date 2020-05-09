@@ -83,7 +83,7 @@ export default {
     },
     createEventObject: function() {
       return {
-        user: this.$store.state.user,
+        user: this.$store.state.user.user,
         id: Math.floor(Math.random() * 10000000),
         title: 'Type in the title',
         category: 'Select a category',
