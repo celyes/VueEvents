@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="container">
+  <div class="container mb-5">
     <div class="row">
       <div class="col-md-6 offset-md-3">
         <h1 class="text-center my-5">Create an event</h1>

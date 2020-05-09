@@ -1,10 +1,14 @@
 <template>
   <div id="app">
-    <NavBar></NavBar>
+    <NavBar />
+
+    <NotificationContainer />
     <router-view :key="$route.fullPath"></router-view>
   </div>
 </template>
 <script>
+
+
 export default {
   name: 'App',
 }

@@ -22,20 +22,39 @@ export const mutations = {
     }
   }
 export const actions = {
-  createEvent: function({ commit }, event) {
+  createEvent: function({ commit, dispatch }, event) {
     return EventService.postEvent(event).then(() => {
       commit('ADD_EVENT', event)
+      const notification = {
+        type: 'success',
+        message: 'Event created successfully!'
+      }
+      dispatch('notification/add', notification, { root: true })
+    })
+    .catch(error => {
+      const notification = {
+        type: 'danger',
+        message: 'There was an error: ' + error.message
+      }
+      dispatch('notification/add', notification, { root: true })
+      throw error
     })
   },
-  fetchEvents: function({ commit }, {perPage, page}) {
+  fetchEvents: function({ commit, dispatch }, {perPage, page}) {
     EventService.getEvents(perPage, page)
     .then(response => {
       commit('SET_EVENTS', response.data)
       commit('SET_TOTAL_EVENTS', response.headers['x-total-count'])
     })
-    .catch(error => {console.error('There was an error: ' + error.message)})
+    .catch(error => {
+      const notification = {
+        type: 'danger',
+        message: 'There was an error: ' + error.message
+      }
+      dispatch('notification/add', notification, { root: true })
+    })
   },
-  fetchEvent: function({ commit, getters }, id) {
+  fetchEvent: function({ commit, dispatch, getters }, id) {
     let event = getters.getEventById(id)
 
     if(event) {
@@ -43,7 +62,13 @@ export const actions = {
     }else{
       EventService.getEvent(id)
       .then(response => { commit('SET_EVENT', response.data) })
-      .catch(error => {console.error(error)});
+      .catch(error => {
+        const notification = {
+          type: 'danger',
+          message: 'There was an error: ' + error.message
+        }
+        dispatch('notification/add', notification, { root: true })
+      });
     }
   }
 }
